@@ -4,6 +4,8 @@ const dotenv = require('dotenv').config();
 const mongoose = require('mongoose');
 const app = express();
 const authController = require('./controllers/AuthController');
+const productController = require('./controllers/ProductController');
+const uploadController = require('./controllers/UploadController');
 
 /* CONNECT TO MONGODB */
 mongoose.connection.on('error', (err) => {
@@ -29,8 +31,8 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use('/images', express.static('public/images'));
 app.use('/auth', authController);
-// app.use('/product', productController);
-// app.use('/upload', uploadController);
+app.use('/product', productController);
+app.use('/upload', uploadController);
 
 
 /* START THE SERVER */
