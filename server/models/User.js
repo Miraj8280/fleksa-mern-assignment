@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+/* USER SCHEMA */
 const UserSchema = new mongoose.Schema({
     username: {
         type: String,
@@ -15,7 +16,7 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true,
         min: 8,
-        max: 20,
+        max: 30,
     },
     isAdmin: {
         type: Boolean,
